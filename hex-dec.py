@@ -1,5 +1,5 @@
 """
-Pyton3.13.3
+Pyton 3.13.3
 Simple converter from hex numbers to decimal ones
 """
 
@@ -43,15 +43,10 @@ def h_d_convert(number: str):
     """
     result_f: int = 0
     length = len(number)
-    #
     for i in range(length, 0, -1):
         value: int = hex_to_dec_digit(number[0])
-        #
         result_f += value * (16 ** (i - 1))
-        #
         number = number[1:]
-        i -= 1
-    #
     return result_f
 
 
@@ -64,9 +59,7 @@ def d__hex_dec_conversion():
     """
     print("\thex -> dec")
     print("Insert a hexadecimal number:")
-    #
     user_input_f = input("> ").casefold()
-    #
     result_f: str = h_d_convert(user_input_f)
     return result_f
 
@@ -113,16 +106,12 @@ def d_h_convert(number: int):
     """
     result_f: str = ""
     remainder_division: bool = True
-    #
     while remainder_division:
         quotient: int = int(number / 16)
         remainder: int = number % 16
-        #
         number = quotient
         hex_digit = dec_to_hex_digit(remainder)
-        #
         result_f = hex_digit + result_f
-        #
         if quotient == 0:
             remainder_division = False
     result_f = result_f.upper()
@@ -138,9 +127,7 @@ def h__dec_hex_conversion():
     """
     print("\tdec -> hex")
     print("Insert a decimal number:")
-    #
     user_input_f = int(input("> "))
-    #
     result_f: str = d_h_convert(user_input_f)
     return result_f
 
@@ -170,7 +157,6 @@ def main():
     while convert:
         user_input = input("> ").casefold()
         result: str = ""
-        #
         match user_input:
             case "q"|"quit":
                 convert = False
@@ -182,14 +168,9 @@ def main():
                 result = h__dec_hex_conversion()
             case _:
                 pass
-        #
         if result != "":
             print(f"\n\tresult = {result}\n")
     a = input()
-
-
-#==============================================================
-
 
 if __name__ == "__main__":
     main()
